@@ -17,4 +17,9 @@ RUN chmod o+r /usr/local/tomcat/webapps/rdf4j-server/WEB-INF/lib/virtjdbc4_3.jar
 RUN cd jars && tar xzf rdf4j_provider.tgz && mv rdf4j_provider_v4/RDF4J_UI/*.xsl /usr/local/tomcat/webapps/rdf4j-workbench/transformations/
 RUN rm -rf jars && 	chown -R tomcat /usr/local/tomcat
 
+# Adjust permissions to be group-writable and set the correct group
+RUN chmod -R g+rwX /usr/local/tomcat/conf /usr/local/tomcat/temp /usr/local/tomcat/logs /usr/local/tomcat/webapps && \
+    chgrp -R 0 /usr/local/tomcat/conf /usr/local/tomcat/temp /usr/local/tomcat/logs /usr/local/tomcat/webapps && \
+    find /usr/local/tomcat -type d -exec chmod g+x {} +
+
 USER tomcat
