@@ -23,7 +23,7 @@ jobs:
           context: .
           push: true
           tags: |
-            stadgent/vlag_virtuoso_rdf4j:latest
-            stadgent/vlag_virtuoso_rdf4j:${{ github.sha }}
-          cache-from: type=registry,ref=stadgent/vlag_virtuoso_rdf4j:latest
+            stadgent/lod-virtuoso-rdf4j:latest
+            stadgent/lod-virtuoso-rdf4j:${{ github.sha }}
+          cache-from: type=registry,ref=stadgent/lod-virtuoso-rdf4j:latest
           cache-to: type=inline
