@@ -18,6 +18,6 @@ RUN cd jars && tar xzf rdf4j_provider.tgz && mv rdf4j_provider_v4/RDF4J_UI/*.xsl
 RUN rm -rf jars
 
 # Adjust permissions to be group-writable and set the correct group
-RUN chgrp -R 0 /usr/local/tomcat && chmod -R g+rwX /usr/local/tomcat
+RUN chgrp -R 0 /usr/local/tomcat /var/rdf4j/server/logs && chmod -R g+rwX /usr/local/tomcat /var/rdf4j/server/logs
 
 USER tomcat
